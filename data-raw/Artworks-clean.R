@@ -1,3 +1,8 @@
+library(dplyr)
+library(RCurl) # needed to grab data via https
+library(stringr)
+library(ggplot2)
+
 download.file("https://raw.githubusercontent.com/MuseumofModernArt/collection/master/Artworks.csv", destfile = "data-raw/Artworks.csv", method = "curl")
 csv <- "data-raw/Artworks.csv"
 target <- "data/artworks.Rdata"
@@ -12,10 +17,10 @@ artworks = artworks[!is.na(artworks$Date), ]
 artworks$Date = paste0(artworks$Date, "-01-01") # sorry for the hack Marc!
 artworks$Date = as.Date(artworks$Date)
 
-ggplot(artworks, aes(Date, DateAcquired)) + geom_point(alpha=.25)
+ggplot(artworks, aes(Date, DateAcquired)) + geom_point(alpha=.10)
 
 ?save
-save(artworks, file="blah.rdata")
-load("blah.rdata")
+save(artworks, file = target)
+load("data/artworks.Rdata")
 
-data(blah) # for packages
+# data(artworks) # for packages
