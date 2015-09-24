@@ -1,10 +1,18 @@
 Package: MoMA
-Type: Package
-Title: What the Package Does (Title Case)
+Title: Museum of Modern Art collections data
 Version: 0.1
 Date: 2015-09-24
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: 'Marc Garrett <marc.garrett@gmail.com> [aut,cre]'
+Maintainer: marc.garrett@gmail.com
+Description: Collections data from the Musuem of Modern Art (MoMA),
+    conveniently packaged for R users.
+Depends:
+    R (>= 3.1.0)
+License: CC0
 LazyData: TRUE
+Suggests:
+    dplyr
+    ggplot2
+    RCurl
+    stringr
+URL: http://github.com/since1968/moma
