@@ -5,7 +5,7 @@ library(ggplot2)
 
 download.file("https://raw.githubusercontent.com/MuseumofModernArt/collection/master/Artworks.csv", destfile = "data-raw/Artworks.csv", method = "curl")
 csv <- "data-raw/Artworks.csv"
-target <- "data/artworks.Rdata"
+target <- "data/artworks.RData"
 artworks <- read.csv(csv, header = TRUE, stringsAsFactors = FALSE)
 
 artworks$DateAcquired = as.Date(artworks$DateAcquired) #
@@ -21,6 +21,6 @@ ggplot(artworks, aes(Date, DateAcquired)) + geom_point(alpha=.10)
 
 ?save
 save(artworks, file = target)
-load("data/artworks.Rdata")
+load("data/artworks.RData")
 
 # data(artworks) # for packages
