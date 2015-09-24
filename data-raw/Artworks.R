@@ -1,7 +1,9 @@
 # load artworks from MoMA csv
-# TODO []: load from URL instead of local file for easier updates
 
 library(dplyr)
+library(RCurl) # needed to grab data via https
+
+download.file("https://raw.githubusercontent.com/MuseumofModernArt/collection/master/Artworks.csv", destfile = "data-raw/Artworks.csv", method = "curl")
 csv <- "data-raw/Artworks.csv"
 target <- "data/artworks.Rdata"
 artworks <- read.csv(csv, header = TRUE, stringsAsFactors = FALSE)
